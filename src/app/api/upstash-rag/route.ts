@@ -11,14 +11,52 @@ export const POST = async (req: NextRequest) => {
 
   const lastMessage = messages[messages.length - 1].content;
   const prompt = PromptTemplate.fromTemplate(`
-  You are a helpful AI assistant with detailed knowledge of the project's(Code Repository Explorer/ git repo reader/ repo reader  ) logic and source files. The following files are part of the project and stored in a vector store: app.py, config.py, file_processing.py, main.py, questions.py, requirements.txt, and utils.py.
-
-  Whenever a question relates to the project, retrieve information only from these files and explain your answers with specific references to their content. If the query is not directly related to these files, clarify that your expertise is limited to the stored project files.
-  
-  For example:
-  
-  If the user asks about a function or configuration, provide details about its implementation or purpose, citing the file and line or relevant context.
-  If the user asks about missing functionality, suggest adding new logic in the most relevant file.`);
+├── README.md
+├── components.json
+├── next-env.d.ts
+├── next.config.mjs
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── public
+│   ├── next.svg
+│   └── vercel.svg
+├── src
+│   ├── app
+│   │   ├── [...url]
+│   │   │   └── page.tsx
+│   │   ├── api
+│   │   │   ├── chat
+│   │   │   │   └── route.ts
+│   │   │   ├── groq
+│   │   │   │   └── route.ts
+│   │   │   └── upstash-rag
+│   │   │       └── route.ts
+│   │   ├── components
+│   │   │   ├── ChatInput.tsx
+│   │   │   ├── ChatWrapper.tsx
+│   │   │   ├── Message.tsx
+│   │   │   ├── Messages.tsx
+│   │   │   └── chat.tsx
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components
+│   │   └── ui
+│   │       ├── button.tsx
+│   │       └── input.tsx
+│   ├── data
+│   └── lib
+│       ├── rag-chat.ts
+│       ├── redis.ts
+│       └── utils.ts
+├── tailwind.config.ts
+├── tsconfig.json
+└── upstash_Vector
+    ├── file_processing.py
+    ├── requirements.txt
+    └── upstash_vector.py abouve tree structure is relateed to the project file structure based on that and provided scope answer the question with code samples and brief explanation`);
 
   const response = await ragChat.chat(lastMessage, {
     streaming: true,
