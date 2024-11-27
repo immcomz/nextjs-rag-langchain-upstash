@@ -42,7 +42,7 @@ def load_and_index_files(repo_path):
         try:
             
             loader = GithubFileLoader(
-            repo="immcomz/nextjs-rag-langchain-upstash",  # the repo name
+            repo=os.getenv("GIT_REPO"),  # the repo name
             branch="main",  # the branch name
             access_token=os.getenv("GITHUB_TOKEN"),
             github_api_url="https://api.github.com",
