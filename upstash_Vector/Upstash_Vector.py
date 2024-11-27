@@ -12,7 +12,7 @@ import tempfile
 from file_processing import clone_github_repo, load_and_index_files
 
 
-# Load environment variables
+# Load environment variables for Upstash
 load_dotenv()
 
 def main():
@@ -31,8 +31,8 @@ def main():
 )
 
 
-   # adding documents to vector Store
-    #store.add_documents(documents=split_documents)
+   # adding documents to Upstash vector Store
+    store.add_documents(documents=split_documents)
 
 #Perform a similarity search/ Indexing Vector Stores
     # query = "Code Repository Explorer" 
