@@ -6,7 +6,9 @@
 
 ### Description
 
-The @upstash/rag-chat package makes it easy to develop powerful retrieval-augmented generation (RAG) chat applications with minimal setup and configuration.
+The @upstash/rag-chat package makes it easy to build RAG (Retrieval-Augmented Generation) chatbots with minimal setup. It uses Upstash Vector Store to embed and store data from Groq AI and GitHub files, enabling the bot to fetch relevant context and deliver accurate responses.
+
+You can also customize Prompt Templates to make responses more meaningful and tailored to your use case. With its simple configuration and integration with Upstash, this package is a great starting point for developers building powerful, context-aware chatbots.
 
 ## Features
 
@@ -17,7 +19,7 @@ The @upstash/rag-chat package makes it easy to develop powerful retrieval-augmen
 
 ---
 
-Set up your environment variables:
+Set up your environment variables For Next APP:
 
 ```sh
 
@@ -25,7 +27,7 @@ UPSTASH_VECTOR_REST_URL="XXXXX"
 UPSTASH_VECTOR_REST_TOKEN="XXXXX"
 
 
-# if you use OpenAI compatible models
+# if you use Groq compatible models
 Groq_API_KEY="XXXXX"
 
 # or if you use Upstash hosted models
@@ -34,6 +36,15 @@ QSTASH_TOKEN="XXXXX"
 # Optional: For Redis-based chat history (default is in-memory)
 UPSTASH_REDIS_REST_URL="XXXXX"
 UPSTASH_REDIS_REST_TOKEN="XXXXX"
+
+```
+
+Set up your environment variables For Python APP:
+
+```sh
+GITHUB_TOKEN="Your Token"
+UPSTASH_VECTOR_REST_URL="*****"
+UPSTASH_VECTOR_REST_TOKEN="***"
 
 ```
 
@@ -64,6 +75,8 @@ export const ragChat = new RAGChat({
 - Create Groq API
 - npm install
 - npm run dev
+- cd upstash_Vector
+- python3 Upstash_Vector.p
 
 ---
 
